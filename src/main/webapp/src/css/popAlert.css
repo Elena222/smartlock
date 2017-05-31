@@ -1,0 +1,6 @@
+.modal-alert{position:fixed; right:auto; bottom:auto; width:300px; left:49%;margin-left:-150px; top:50%;margin-top:-30px; z-index:9999;background-color: #fff;border: 1px solid #999;border: 1px solid rgba(0,0,0,.2);outline: 0;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,.5)}
+.modal-alert-info{padding:30px; text-align:center; font-size:18px;font-weight:600;font-family:"微软雅黑";color:red; background-color:#fff}

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.snnu.css.dao.RoomDao">
+    <!--根据用户id查询房间信息-->
+    <select id="queryByUserId" resultType="org.snnu.css.entity.Room">
+        select room_id,room_index,ip,room_part,e2.building_name,room_des,room_status,room_type,room_floor
+        from tb_room AS e1
+        join tb_building AS e2 on e1.building_id=e2.building_id
+        where e1.building_id=
+        (select building_id from tb_building where building_name=
+        (select management from tb_user where user_id=#{userId}))
+    </select>
+    <!--根据楼管的id来查询出所管理教学楼的所有教研室-->
+    <select id="querySpecialRoomById" resultType="org.snnu.css.entity.Room">
+        select room_id,room_index,ip,room_part,e2.building_name,room_des,room_status,room_type,room_floor
+        from tb_room AS e1
+        join tb_building AS e2 on e1.building_id=e2.building_id
+        where e1.building_id=
+        (select building_id from tb_building where building_name=
+        (select management from tb_user where user_id=#{userId}))
+        and room_type="教研室"
+    </select>
+    <select id="queryByUserIdRoom" resultType="org.snnu.css.entity.Room">
+        select e1.room_id,e2.room_index,e2.ip,e2.room_part,e3.building_name,e2.room_des,e2.room_status,e2.room_type,e2.room_floor
+        from tb_room_user AS e1
+        join tb_room AS e2 on e1.room_id=e2.room_id
+        join tb_building AS e3 on e2.building_id=e3.building_id
+        where e1.user_id=#{userId}
+    </select>
+    <select id="queryByUserIdAndRoomPart" resultType="org.snnu.css.entity.Room">
+        select tr.room_id,room_index,ip,room_part,building_name,room_des,room_status,room_type,room_floor
+        from tb_room_user AS tru
+        join tb_room AS tr on tru.room_id=tr.room_id
+        join tb_building AS tb on tr.building_id=tb.building_id
+        where user_id=#{userId} and room_part=#{roomPart}
+    </select>
+    <select id="queryRoomTypeById" resultType="java.lang.String">
+        select DISTINCT (room_type)
+        from tb_room
+        where room_id in(
+                        select distinct(room_id)
+                        from tb_room_user
+                        where user_id=#{userId}
+                       )
+    </select>
+    <!--根据楼名来查找房间-->
+    <select id="queryRoomByBuildingName" resultType="java.lang.String">
+        select room_id
+        from tb_room
+        where building_id=(
+                            select building_id
+                            from tb_building
+                            where building_name=#{BuildingName}
+                           )
+    </select>
+    <!--根据房间查找mac地址-->
+    <select id="queryMacByRoomId" resultType="String">
+              select room_mac
+              from tb_room
+              where room_id=#{roomId}
+    </select>
+    <!--根据roomMac来开门-->
+    <update id="openByRoomMac">
+        UPDATE tb_room
+        set room_status=1
+        where room_mac=#{roomMac}
+    </update>
+    <!--根据roomId来关门-->
+    <update id="closeByRoomMac">
+       UPDATE tb_room
+        set room_status=0
+        where room_mac=#{roomMac}
+    </update>
+    <!-- 插入房间信息-->
+    <insert id="roomInsert">
+        insert into
+        tb_room(room_id,room_index,room_part,room_type,room_status,room_des,building_id,room_floor)
+        select #{room1.roomId},#{room1.roomIndex},#{room1.roomPart},#{room1.roomType},0,#{room1.roomDes},building_id,#{room1.roomIndex}/100
+        from tb_building where building_name=#{room1.buildingName}
+    </insert>
+    <insert id="roomUserInsert">
+        insert into tb_room_user(room_id,user_id)
+        VALUE (#{roomId},#{userId})
+    </insert>
+    <!--修改房间信息-->
+    <update id="roomUpdateById">
+        UPDATE tb_room
+        set room_index=#{room.roomIndex},room_part=#{room.roomPart},room_type=#{room.roomType},
+        room_des=#{room.roomDes}
+        where room_id=#{room.roomId}
+    </update>
+    <update id="roomUserUpdate">
+        UPDATE tb_room_user
+        set user_id=#{userId}
+        where room_id=#{roomId}
+    </update>
+    <!--根据房间Id来删除房间-->
+    <delete id="roomDelete">
+        delete from tb_room
+        where room_id=#{roomId}
+    </delete>
+    <delete id="roomDeleteByBuildingId">
+        delete from tb_room
+        where building_id=#{buildingId}
+    </delete>
+    <!--删除房间和人的对应关系-->
+    <delete id="roomUserDelete">
+        delete from tb_room_user
+        where room_id=#{roomId}
+    </delete>
+
+
+
+
+    <insert id="insertTest">
+        insert into tb_room(room_id,room_index,room_part,room_floor,building_id,room_status)
+        value(#{roomId},#{roomIndex},#{roomPart},#{roomFloor},#{buildingId},#{roomStatus})
+    </insert>
+    <update id="updateTest">
+        UPDATE tb_room
+        set room_type='教室'
+    </update>
+    <insert id="insertTest1">
+        insert into tb_room_user(room_id)
+        value(#{roomId})
+    </insert>
+    <update id="updateTest2">
+        UPDATE tb_room_user
+        set user_id=7
+    </update>
+</mapper>

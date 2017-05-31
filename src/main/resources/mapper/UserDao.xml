@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.snnu.css.dao.UserDao">
+    <!--账户登录-->
+    <select id="queryByAccountAndPassword" resultType="org.snnu.css.entity.UserReturn">
+    select e1.user_id,e2.type
+        from tb_user e1 left join tb_type e2 on e1.user_type=e2.type_id
+        where account=#{account} and password=#{password}
+    </select>
+    <!--根据账户来查询mac地址-->
+    <select id="queryMacByAccount" resultType="String">
+        select mac
+        FROM tb_user
+        where account=#{account}
+    </select>
+    <!--添加用户-->
+    <insert id="userInsert">
+        insert into tb_user(account,password,username,phone,higher_id,user_type,user_status,management)
+        select #{user.account},#{user.password},#{user.username},#{user.phone},#{user.higherId},type_id,1,#{user.management}
+        from tb_type where type=#{user.type}
+    </insert>
+    <!--将mac地址写入数据库-->
+    <update id="macUpdate"  parameterType="java.lang.String">
+       update tb_user
+       set mac=#{mac}
+       where account=#{account}
+    </update>
+    <!--更改用户-->
+    <update id="userUpdate">
+        update tb_user
+        set account=#{user.account},password=#{user.password},username=#{user.username},phone=#{user.phone}
+        ,user_type=(select type_id from tb_type where type=#{user.type}),higher_id=#{user.higherId},
+        management=#{user.management}
+        where user_id=#{user.userId}
+    </update>
+    <!--停用账户-->
+    <update id="userUpdateStatus">
+        update tb_user
+        set user_status=0
+        where user_id=#{userId}
+    </update>
+    <!--通过id来查询下级账户-->
+    <select id="queryByHigherId" resultType="org.snnu.css.entity.User">
+        select e1.user_id,e1.account,e1.password,e1.username,e1.phone,e1.user_status,e1.higher_id,e2.type,e1.management
+        from tb_user e1 left join tb_type e2 on e1.user_type=e2.type_id
+        where higher_id=#{higherId}
+        and user_status=1
+    </select>
+
+    <!--通过账号查找用户Id-->
+    <select id="queryIdByAccount" resultType="int">
+        SELECT user_id
+        FROM tb_user
+        WHERE account=#{account}
+    </select>
+    <!--通过用户Id查找用户所有信息-->
+    <select id="queryById" resultType="org.snnu.css.entity.User">
+        select e1.user_id,e1.account,e1.password,e1.username,e1.higher_id,e1.phone,e2.type,e1.management,e1.user_status
+        from tb_user e1 left join tb_type e2 ON e1.user_type=e2.type_id
+        where user_id=#{userId}
+    </select>
+    <!--根据userId来查询此用户下级用户的类型-->
+    <select id="queryUserTypeById" resultType="java.lang.String">
+       select tb_type.type
+       from tb_type
+       where higher_type=(
+                          select user_type
+                          from tb_user
+                          where user_id=#{userId}
+                          )
+    </select>
+
+
+
+</mapper>

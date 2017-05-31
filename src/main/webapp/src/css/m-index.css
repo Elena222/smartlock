@@ -1,0 +1,308 @@
+@charset "UTF-8";
+#m-nav {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "微软雅黑"; }
+  #m-nav body {
+    margin: 0;
+    padding: 0;
+    height: 100%; }
+  #m-nav .topNav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    font-family: "微软雅黑"; }
+    #m-nav .topNav ul {
+      padding: 0 30px 13.33333px 0;
+      margin: 0;
+      height: 40px;
+      background-color: rgba(23, 23, 23, 0.96); }
+      #m-nav .topNav ul li {
+        list-style: none; }
+      #m-nav .topNav ul .logo {
+        color: white;
+        font-size: 34px;
+        width: 250px;
+        float: left; }
+        #m-nav .topNav ul .logo p {
+          margin: 0;
+          text-align: center;
+          line-height: 40px; }
+        #m-nav .topNav ul .logo:hover {
+          cursor: pointer; }
+      #m-nav .topNav ul .login {
+        float: right;
+        margin-left: 20px; }
+        #m-nav .topNav ul .login a {
+          text-decoration: none; }
+          #m-nav .topNav ul .login a p {
+            color: white;
+            margin: 0;
+            text-align: center;
+            line-height: 40px; }
+            #m-nav .topNav ul .login a p:hover {
+              color: red; }
+  #m-nav .content {
+    padding-top: 40px;
+    height: 100%; }
+    #m-nav .content .leftNav {
+      margin-top: 0;
+      margin-left: 0;
+      height: 100%;
+      width: 250px;
+      background-color: rgba(0, 0, 0, 0.73);
+      float: left;
+      font-size: 15px;
+      font-family: "微软雅黑";
+      letter-spacing: 1px; }
+      #m-nav .content .leftNav ul {
+        padding: 0 0 0 0; }
+        #m-nav .content .leftNav ul li {
+          list-style: none;
+          cursor: pointer; }
+          #m-nav .content .leftNav ul li img {
+            padding-top: 9.5px;
+            width: 21px;
+            margin-left: 50px; }
+          #m-nav .content .leftNav ul li p {
+            width: 159px;
+            float: right;
+            color: white;
+            margin: 0 0 0 20px;
+            line-height: 21px;
+            padding-top: 9.5px;
+            text-align: left; }
+        #m-nav .content .leftNav ul .leval {
+          height: 40px;
+          border-bottom: 0.2px solid rgba(190, 190, 190, 0.64);
+          transition: 0.4s; }
+          #m-nav .content .leftNav ul .leval:hover {
+            background-color: rgba(255, 0, 0, 0.65); }
+        #m-nav .content .leftNav ul .current {
+          background-color: red;
+          transition: 0.2s; }
+    #m-nav .content .main-content {
+      margin-left: 250px;
+      height: 100%; }
+      #m-nav .content .main-content iframe {
+        width: 100%;
+        height: 100%; }
+
+#m-table table {
+  table-layout: fixed;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-family: "微软雅黑";
+  letter-spacing: 1px; }
+  #m-table table tbody, #m-table table thead {
+    background-color: rgba(242, 242, 242, 0.38); }
+  #m-table table th, #m-table table td {
+    border-bottom: 1px solid #878787;
+    text-align: left; }
+    #m-table table th .btn, #m-table table td .btn {
+      margin-right: 10px;
+      height: 26px;
+      font-size: 12px; }
+  #m-table table tbody tr:nth-child(odd) {
+    background-color: #EEE; }
+  #m-table table tbody tr:hover {
+    cursor: pointer; }
+
+.m-popPanel {
+  display: none;
+  position: absolute;
+  top: 15%;
+  left: 40%;
+  width: 270px;
+  padding-bottom: 10px;
+  font-family: "微软雅黑"; }
+  .m-popPanel form, .m-popPanel .delete-pop {
+    background-color: whitesmoke;
+    border: 1px solid #f37b1d;
+    width: 100%; }
+    .m-popPanel form .pop-title, .m-popPanel .delete-pop .pop-title {
+      position: relative;
+      background-color: rgba(4, 4, 11, 0.28);
+      height: 40px;
+      width: 100%; }
+      .m-popPanel form .pop-title p, .m-popPanel .delete-pop .pop-title p {
+        font-weight: 500;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px; }
+      .m-popPanel form .pop-title span img, .m-popPanel .delete-pop .pop-title span img {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        height: 30px;
+        width: 30px; }
+        .m-popPanel form .pop-title span img:hover, .m-popPanel .delete-pop .pop-title span img:hover {
+          cursor: pointer; }
+    .m-popPanel form .pop-body, .m-popPanel .delete-pop .pop-body {
+      width: 97%;
+      margin: 0 auto;
+      padding: 15px 24px 20px 0; }
+      .m-popPanel form .pop-body .input, .m-popPanel .delete-pop .pop-body .input {
+        float: right;
+        margin-top: 10px; }
+      .m-popPanel form .pop-body:after, .m-popPanel .delete-pop .pop-body:after {
+        display: block;
+        clear: both;
+        content: ""; }
+      .m-popPanel form .pop-body button, .m-popPanel .delete-pop .pop-body button {
+        float: right;
+        width: 90%;
+        margin: 18px auto 0; }
+      .m-popPanel form .pop-body select, .m-popPanel form .pop-body input:not([type=checkbox]), .m-popPanel form .pop-body textarea, .m-popPanel .delete-pop .pop-body select, .m-popPanel .delete-pop .pop-body input:not([type=checkbox]), .m-popPanel .delete-pop .pop-body textarea {
+        width: 149px;
+        float: right; }
+      .m-popPanel form .pop-body .staff-distr, .m-popPanel .delete-pop .pop-body .staff-distr {
+        float: right;
+        width: 149px;
+        border: 1px solid darkgray;
+        border-top: none;
+        background-color: white;
+        padding: 5px;
+        height: 50px;
+        overflow-y: scroll; }
+      .m-popPanel form .pop-body .staff-distr:after, .m-popPanel .delete-pop .pop-body .staff-distr:after {
+        clear: both;
+        content: ""; }
+      .m-popPanel form .pop-body .staff-distr li, .m-popPanel .delete-pop .pop-body .staff-distr li {
+        list-style: none;
+        float: left;
+        padding-left: 6px; }
+
+#m-roomState .main {
+  background-color: rgba(204, 204, 204, 0.09);
+  margin: 40px auto 0;
+  width: 80%; }
+  #m-roomState .main .monitor {
+    width: 100%; }
+  #m-roomState .main .rooms {
+    width: 100%;
+    height: 280px; }
+    #m-roomState .main .rooms .room {
+      float: left;
+      border: 2px solid rgba(0, 0, 0, 0.64);
+      width: 21%;
+      margin-right: 20px;
+      background-color: rgba(204, 204, 204, 0.12); }
+      #m-roomState .main .rooms .room .room-number p {
+        margin: 0;
+        font-size: 45px;
+        font-family: "微软雅黑";
+        color: green;
+        text-align: center;
+        height: 120px;
+        line-height: 120px; }
+      #m-roomState .main .rooms .room .room-number .line {
+        border: 1px solid rgba(10, 10, 35, 0.52); }
+      #m-roomState .main .rooms .room .room-state p {
+        margin: 0;
+        font-size: 16px;
+        color: green;
+        padding-left: 10px;
+        font-family: "微软雅黑";
+        text-align: left;
+        height: 80px;
+        line-height: 80px; }
+      #m-roomState .main .rooms .room .button {
+        position: relative;
+        height: 70px; }
+        #m-roomState .main .rooms .room .button .left-button {
+          position: absolute;
+          left: 0;
+          width: 47%; }
+        #m-roomState .main .rooms .room .button .right-button {
+          position: absolute;
+          right: 0;
+          width: 47%; }
+        #m-roomState .main .rooms .room .button .bottom-button {
+          position: absolute;
+          bottom: 0;
+          width: 100%; }
+
+#m-classRoomState .main, #m-classRoomOpen .main {
+  margin: 40px auto 0;
+  width: 80%; }
+  #m-classRoomState .main a, #m-classRoomOpen .main a {
+    text-decoration: none; }
+  #m-classRoomState .main .ul li, #m-classRoomOpen .main .ul li {
+    list-style: none;
+    float: left;
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative; }
+    #m-classRoomState .main .ul li p, #m-classRoomOpen .main .ul li p {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 40%;
+      width: 40%; }
+    #m-classRoomState .main .ul li img, #m-classRoomOpen .main .ul li img {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: block;
+      height: 60%;
+      width: 60%; }
+    #m-classRoomState .main .ul li:hover, #m-classRoomOpen .main .ul li:hover {
+      cursor: pointer; }
+  #m-classRoomState .main .ul .current, #m-classRoomOpen .main .ul .current {
+    border: 1px solid red;
+    box-shadow: #968989 4px 4px 4px; }
+  #m-classRoomState .main .date, #m-classRoomOpen .main .date {
+    float: right;
+    margin-bottom: 10px;
+    font-size: 15px; }
+    #m-classRoomState .main .date input[type="time"], #m-classRoomOpen .main .date input[type="time"] {
+      width: 120px;
+      height: 25px; }
+    #m-classRoomState .main .date input[type="checkbox"], #m-classRoomOpen .main .date input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      margin: 0 0 0 40px; }
+    #m-classRoomState .main .date span, #m-classRoomOpen .main .date span {
+      margin-right: 40px; }
+    #m-classRoomState .main .date button, #m-classRoomOpen .main .date button {
+      width: 80px;
+      height: 25px; }
+
+.right-content {
+  width: 90%;
+  margin: 40px auto; }
+  .right-content #m-table table {
+    width: 97%; }
+    .right-content #m-table table tbody .first, .right-content #m-table table thead .first {
+      width: 7%;
+      text-align: center; }
+    .right-content #m-table table tbody .last, .right-content #m-table table thead .last {
+      width: 20%; }
+    .right-content #m-table table th, .right-content #m-table table td {
+      height: 35px; }
+      .right-content #m-table table th .btn, .right-content #m-table table td .btn {
+        width: 26%; }
+  .right-content .page {
+    float: right; }
+    .right-content .page p {
+      display: inline;
+      margin-right: 10px; }
+  .right-content .m-add {
+    float: right;
+    margin-bottom: 10px;
+    width: 80px; }
+  .right-content .search {
+    height: 31px;
+    border-radius: 10px;
+    border: 1px solid rgba(94, 94, 94, 0.86); }
+  .right-content .m-reload {
+    float: right;
+    margin-right: 6px; }
+  .right-content .hide-tr {
+    display: none; }

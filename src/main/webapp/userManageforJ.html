@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN" id="m-nav">
+<head>
+    <meta charset="UTF-8">
+    <title>导航</title>
+</head>
+<link rel="stylesheet" href="src/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="src/css/m-index.css">
+
+<link rel="stylesheet" href="src/css/panel.css">
+<script src="src/bootstrap/js/jquery.min.js"></script>
+
+<style>
+
+
+
+</style>
+
+<script>
+
+
+</script>
+
+<body>
+
+<div class="right-content">
+    <button class="btn btn-success m-add" id="m-add">添加</button>
+    <button class="btn btn-danger m-stop" id="m-stop">停用</button>
+    <button class="btn btn-primary m-revise" id="m-revise">修改</button>
+    <button class="btn btn-default-success m-reload" id="m-reload">刷新</button>
+
+    <input type="text" class="search">&nbsp;
+    <button class="btn btn-group-vertical" id="search">查找</button>
+
+    <div style="clear: both" class="panel panel-default panel-success">
+        <div class="panel-header" style="font-size: 15px;font-family: 微软雅黑;letter-spacing: 1px">
+            房间管理：
+        </div>
+        <div class="panel-body" id="m-table">
+            <form action="/webSmartLock/room/list/delete" method="post">
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="first"></th>
+                        <th>房间号</th>
+                        <th>房间类型</th>
+                        <th>所在教学楼</th>
+                        <th>所在楼段</th>
+                        <th>房间负责人</th>
+                        <th style="display: none">房间描述</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="tbody">
+
+                        <tr>
+                            <td class="first">
+                                <input type="checkbox" name="roomId" value="${td.roomId}">
+                            </td>
+                            <td>1</td>
+                            <td>普通教室</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="first">
+                                <input type="checkbox" name="roomId" value="${td.roomId}">
+                            </td>
+                            <td>2</td>
+                            <td>普通教室</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td class="first">
+                                <input type="checkbox" name="roomId" value="${td.roomId}">
+                            </td>
+                            <td>3</td>
+                            <td>普通教室</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="first">
+                                <input type="checkbox" name="roomId" value="${td.roomId}">
+                            </td>
+                            <td>4</td>
+                            <td>普通教室</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>4</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <!--<%&#45;&#45;——————————————————————————删除房间————————————————————————————&#45;&#45;%>-->
+                <div class="m-popPanel" id="delete">
+                    <div class="delete-pop">
+                        <div class="pop-title">
+                            <p>删除房间？</p>
+                        </div>
+
+                        <div class="pop-body">
+                            <button type="submit" class="button btn btn-danger">确定</button>
+                            <button type="button" class="button btn btn-primary cancel">取消</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+    <!--<%&#45;&#45;——————————————————————————添加房间————————————————————————————&#45;&#45;%>-->
+    <div class="m-popPanel"  id="create">
+        <form action="" method="post">
+            <div class="pop-title">
+                <p>房间信息</p>
+                <span><img class="cancel" src="src/images/x.png" alt=""></span>
+            </div>
+
+            <div class="pop-body">
+                <div class="input">
+                    <span>房间号：</span><input type="text" name="roomIndex" class="roomIndex">
+                </div>
+
+                <div class="input">
+                    <span>房间类型：</span>
+                    <select name="roomType" class="roomType">
+                        <option value="请选择">请选择</option>
+                        <option value="普通教室">普通教室</option>
+                        <option value="多媒体教室">多媒体教室</option>
+                    </select>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                 <!--<div class="input">-->
+                    <!--<span>所在教学楼：</span>-->
+                    <!--<select name="buildingName" class="buildingName" id="buildings">-->
+                        <!--<option value="请选择" data-duan="0">请选择</option>-->
+                        <!--<option value="文津楼" data-duan="3">文津楼</option>-->
+                        <!--<option value="文渊楼" data-duan="4">文渊楼</option>-->
+                        <!--<option value="文汇楼" data-duan="5">文汇楼</option>-->
+                        <!--<option value="图书馆" data-duan="1">图书馆</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+
+                <!--<div class="input">-->
+                    <!--<span>所在楼段：</span>-->
+                    <!--<select name="roomPart" class="roomPart" id="duan">-->
+                        <!--<option value="请选择">请选择</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+
+
+
+                <div class="input" >
+                    <span>角色：</span>
+                    <select name="type" class="type" id="l-y-type">
+
+                        <option value="楼管">楼管</option>
+                        <option value="院主">院主</option>
+                    </select>
+                </div>
+
+                <div class="input" id="l-management">
+                    <span>管理范围：</span>
+                    <select name="management" class="management">
+                        <option value="文津楼">文津楼</option>
+                        <option value="文津楼">文渊楼</option>
+                        <option value="文津楼">文澜楼</option>
+                        <option value="文津楼">文汇楼</option>
+                    </select>
+                </div>
+
+                <div class="input" id="y-management" style="display: none">
+                    <span>管理范围：</span>
+                    <select name="management" class="management">
+                        <option value="文津楼">文学院</option>
+                        <option value="文津楼">文学院</option>
+                        <option value="文津楼">文学院</option>
+                        <option value="文津楼">文学院</option>
+                    </select>
+                </div>
+
+                <div class="input" id="staff-distribution" style="display: none">
+                    <span>教研室分配：</span>
+
+                    <select class="management"></select>
+                    <div class="staff-distr">
+                        <li><input type="checkbox" value="101" data-id="1-1-101"><span>101</span></li>
+                        <li><input type="checkbox" value="102" data-id="1-1-102"><span>102</span></li>
+                        <li><input type="checkbox" value="103" data-id="1-1-103"><span>103</span></li>
+                        <li><input type="checkbox" value="104" data-id="1-1-104"><span>104</span></li>
+                        <li><input type="checkbox" value="105" data-id="1-1-105"><span>105</span></li>
+                    </div>
+
+                    <input type="text" name="" id="roomIdArray" style="display: none">
+                </div>
+
+
+
+                <div class="input">
+                    <span>房间负责人：</span><input type="text" name="account" class="account">
+                </div>
+
+                <div class="input">
+                    <span>房间描述：</span><textarea name="roomDes" class="roomDes" cols="18" rows="5"></textarea>
+                </div>
+                <div class="input" style="display: none">
+                    <span>房间ID：</span><input type="hidden" name="roomId" class="roomId">
+                </div>
+
+                <button type="submit" class="button btn btn-primary submit-create">确定</button>
+
+
+
+            </div>
+
+        </form>
+    </div>
+
+
+
+    <!--<%&#45;&#45;——————————————————————————修改房间信息————————————————————————————&#45;&#45;%>-->
+    <div class="m-popPanel"  id="edit">
+        <form action="/webSmartLock/room/list/edit" method="post">
+            <div class="pop-title">
+                <p>用户信息</p>
+                <span><img class="cancel" src="src/images/x.png" alt=""></span>
+            </div>
+
+            <div class="pop-body">
+
+                <div class="input">
+                    <span>房间号：</span><input type="text" name="roomIndex" class="roomIndex" disabled="false">
+                </div>
+                <div class="input">
+                    <span>房间类型：</span>
+                    <select name="roomType" class="roomType">
+                        <option value="普通教室">普通教室</option>
+                        <option value="多媒体教室">多媒体教室</option>
+                    </select>
+                </div>
+
+                <div class="input">
+                    <span>所在教学楼：</span><input type="text" name="buildingName" class="buildingName" disabled="false">
+                </div>
+
+                <div class="input">
+                    <span>所在楼段：</span><input type="text" name="roomPart" class="roomPart" disabled="false">
+                </div>
+
+                <div class="input">
+                    <span>房间负责人：</span><input type="text" name="account" class="account">
+                </div>
+
+                <div class="input">
+                    <span>房间描述：</span><textarea name="roomDes" class="roomDes" cols="18" rows="5"></textarea>
+                </div>
+                <div class="input" style="display: none">
+                    <span>房间ID：</span><input type="hidden" name="roomId" class="roomId">
+                </div>
+
+                <button type="submit" class="button btn btn-primary submit-edit">确定</button>
+
+
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+
+</body>
+
+<script src="src/js/smartLock.js"></script>
+
+
+</html>

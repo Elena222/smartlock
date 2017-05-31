@@ -1,0 +1,24 @@
+#m-nav .topNav ul .login a input {
+    color: white;
+    background-color: #333333;
+    margin-top: 9px;
+    text-align: center;
+    border: none;
+}
+.currentUser{
+    color: white;
+    margin: 0;
+    text-align: center;
+    line-height: 40px;
+    float: right;
+}
+#m-nav .topNav ul .login a input:hover {
+    color: red; }
+
+
+
+
+
+#m-nav .content .leftNav ul .active {
+    background-color: red;
+    transition: 0.2s; }

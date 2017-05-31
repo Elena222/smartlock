@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.snnu.css.dao.BuildingDao">
+    <!--查询所有教学楼的信息-->
+    <select id="buildingQueryAll" resultType="org.snnu.css.entity.Building">
+        select building_id,building_name,roomcount,partcount,floorcount,building_des
+        from tb_building
+    </select>
+    <!--将没有被分配楼主的教学楼筛选出来-->
+    <select id="queryBuildingLimitChecked" resultType="org.snnu.css.entity.Building">
+        select building_id,building_name,roomcount,partcount,floorcount,building_des
+        from tb_building
+        where checked=0
+    </select>
+    <!--为教学楼指定楼主改变教学楼的状态-->
+    <update id="ChangeStatus">
+        update tb_building
+        set checked=#{status}
+        where building_name=#{buildingName}
+    </update>
+
+    <!--根据教学楼的名字来查询教学楼的段数-->
+    <select id="queryPartCountByName" resultType="java.lang.Integer">
+        select partcount
+        from tb_building
+        WHERE building_name=#{buildingName}
+    </select>
+    <!--根据楼管的id来查询管理的房间在哪个教学楼-->
+    <select id="queryBuildingNameById" resultType="java.lang.String">
+        SELECT building_name
+        from tb_building
+        where director_id=(
+                            select higher_id
+                            from tb_user
+                            where user_id=#{userId}
+                           )
+    </select>
+    <!-- 添加教学楼信息-->
+    <insert id="buildingInsert">
+        insert into tb_building(building_name,roomcount,partcount,floorcount,building_des,checked)
+        values(#{building.buildingName},#{building.roomcount},#{building.partcount},#{building.floorcount},#{building.buildingDes},0)
+    </insert>
+    <!--添加教学楼负责人-->
+    <update id="buildingAddHigher">
+        update tb_building
+        set director_id=
+        (select user_id from tb_user where account=#{account})
+        where building_name=#{buildingName}
+    </update>
+    <!--删除教学楼信息-->
+    <delete id="buildingDelete">
+        delete from tb_building
+        where building_id=#{buildingId}
+    </delete>
+    <!--根据教学楼的名字来查询教学楼的id-->
+    <select id="queryIdByBuildingName" resultType="java.lang.Integer">
+        select building_id
+        from tb_building
+        where building_name=#{buildingName}
+    </select>
+</mapper>

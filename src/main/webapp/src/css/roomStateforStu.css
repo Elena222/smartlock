@@ -1,0 +1,119 @@
+.roomstate .main {
+    background-color: rgba(204, 204, 204, 0.09);
+    margin: 40px auto 0;
+    width: 100%;
+}
+
+/*.roomstate .main .monitor {*/
+    /*width: 100%;*/
+/*}*/
+
+.roomstate .main .rooms {
+    width: 100%;
+    height: 280px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.roomstate .main .rooms .room {
+    float: left;
+    border: 2px solid rgba(0, 0, 0, 0.64);
+    width: 21%;
+    margin-right: 40px;
+    background-color: rgba(204, 204, 204, 0.12);
+
+}
+
+.roomstate .main .rooms .room .room-number p {
+    margin: 0;
+    font-size: 45px;
+    font-family: "微软雅黑";
+    color: green;
+    text-align: center;
+    height: 120px;
+    line-height: 120px;
+}
+
+.roomstate .main .rooms .room .room-number .line {
+    border: 1px solid rgba(10, 10, 35, 0.52);
+}
+
+.roomstate .main .rooms .room .room-state p {
+    margin: 0;
+    font-size: 16px;
+    color: green;
+    padding-left: 10px;
+    font-family: "微软雅黑";
+    text-align: left;
+    height: 80px;
+    line-height: 80px;
+}
+
+.roomstate .main .rooms .room .button {
+    position: relative;
+    height: 70px;
+}
+
+.roomstate .main .rooms .room .button .left-button {
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.roomstate .main .rooms .room .button .bottom-button {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.roomstate .main {
+    margin: 40px auto 0;
+    width: 80%;
+}
+
+/*.roomstate .main a {*/
+/*text-decoration: none; }*/
+/*.roomstate .main .ul li {*/
+/*list-style: none;*/
+/*float: left;*/
+/*border: 1px solid black;*/
+/*height: 50px;*/
+/*width: 50px;*/
+/*margin-right: 10px;*/
+/*margin-bottom: 10px;*/
+/*position: relative; }*/
+/*.roomstate .main .ul li p {*/
+/*position: absolute;*/
+/*left: 0;*/
+/*top: 0;*/
+/*height: 40%;*/
+/*width: 40%; }*/
+/*.roomstate .main .ul li img {*/
+/*position: absolute;*/
+/*right: 0;*/
+/*bottom: 0;*/
+/*display: block;*/
+/*height: 60%;*/
+/*width: 60%; }*/
+/*.roomstate .main .ul li:hover {*/
+/*cursor: pointer; }*/
+/*.roomstate .main .ul .current {*/
+/*border: 1px solid red;*/
+/*box-shadow: #968989 4px 4px 4px; }*/
+/*.roomstate .main .date {*/
+/*float: right;*/
+/*margin-bottom: 10px;*/
+/*font-size: 15px; }*/
+/*.roomstate .main .date input[type="time"] {*/
+/*width: 120px;*/
+/*height: 25px; }*/
+/*.roomstate .main .date input[type="checkbox"] {*/
+/*width: 15px;*/
+/*height: 15px;*/
+/*margin: 0 0 0 40px; }*/
+/*.roomstate .main .date span {*/
+/*margin-right: 40px; }*/
+.roomstate .main .date button {
+    width: 80px;
+    height: 25px;
+}

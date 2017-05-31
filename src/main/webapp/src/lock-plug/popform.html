@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="popform/css/common.css"/><!-- 基本样式 -->
+    <!--<link rel="stylesheet" href="tanchuform/css/animate.min.css"/> &lt;!&ndash; 动画效果 &ndash;&gt;-->
+
+    <title>弹出表单提交代码 </title>
+</head>
+<body>
+<div id="wrapper">
+    <div class="box">
+        <div class="demo">
+
+
+            <a href="javascript:;" class="demo6">添加</a>
+
+<!--/*-->
+ <!--* 看了下面的调用示例，你就可以自定义弹框了哦。-->
+ <!--*          - $(element).hDialog(); //默认调用弹框；-->
+ <!--*          - $(element).hDialog({box: '#demo'}); //自定义弹框容器ID/Class；-->
+ <!--*          - $(element).hDialog({boxBg: '#eeeeee'}); //自定义弹框容器背景；-->
+ <!--*          - $(element).hDialog({modalBg: '#eeeeee'}); //自定义遮罩背景颜色；-->
+ <!--*          - $(element).hDialog({closeBg: '#eeeeee'}); //自定义关闭按钮背景颜色；-->
+ <!--*          - $(element).hDialog({width: 500}); //自定义弹框宽度；-->
+ <!--*          - $(element).hDialog({height: 400}); //自定义弹框高度；-->
+ <!--*          - $(element).hDialog({position: 'top'}); //top:弹框顶部居中,center:绝对居中,left:顶部居左；-->
+ <!--*          - $(element).hDialog({triggerEvent: 'mouseenter'}); //弹框触发方式；-->
+ <!--*          - $(element).hDialog({effect: 'fadeOut'}); //弹框关闭效果；-->
+ <!--*          - $(element).hDialog({closeHide: false}); //是否隐藏关闭按钮(默认true：不隐藏，false：隐藏)-->
+ <!--*          - $(element).hDialog({resetForm: false}); //false:不重置表单,反之重置；-->
+ <!--*          - $(element).hDialog({modalHide: false}); //false:点击遮罩背景不关闭弹框,反之关闭；-->
+ <!--*          - $(element).hDialog({escHide: false}); //false:按ESC不关闭弹框,反之关闭；-->
+ <!--* -->
+ <!--* 也可以这样：  -->
+ <!--*          - $(element).hDialog({-->
+ <!--*                box: '#demo',-->
+ <!--*                boxBg: '#eeeeee',-->
+ <!--*                modalBg: '#eeeeee',-->
+ <!--*                closeBg: 'rgba(0,0,0,0.6)',-->
+ <!--*                width: 500,-->
+ <!--*                height: 400,-->
+ <!--*                positions: 'top',-->
+ <!--*                triggerEvent: 'mouseenter',-->
+ <!--*                effect: 'hide',-->
+ <!--*                closeHide: false,-->
+ <!--*                resetForm: false,-->
+ <!--*                modalHide: false,-->
+ <!--*                escHide: false,-->
+ <!--*                beforeShow: function(){ alert('执行回调'); },-->
+ <!--*                afterHide: function(){ alert('执行回调'); }-->
+ <!--*            });-->
+ <!--*-->
+ <!--* 下面是简单的扩展方法(以后再慢慢补充吧)：-->
+ <!--*          - $.tooltip('错误提示文字'); 或者  $.tooltip('正确提示文字',4000,true);  //内置2种提示风格(参数1为提示文字，参数2为自动关闭时间，参数3：true为正确，false为错误)-->
+ <!--*          - $.showLoading('正在加载...',100,30); 或者  $.hideLoading(); //显示/移除加载(参数1为说明文字，参数2为宽度，参数3为高度，默认宽高为90*30，可不填写)-->
+ <!--*/-->
+
+        </div><!-- demo end -->
+        <!-- 注意：请将要放入弹框的内容放在比如id="HBox"的容器中，然后将box的值换成该ID即可，比如：$(element).hDialog({'box':'#HBox'}); -->
+        <div id="HBox">
+            <form action="" method="post" onsubmit="return false;">
+                <ul class="list">
+                    <li>
+                        <strong>昵 称 <font color="#ff0000">*</font></strong>
+                        <div class="fl"><input type="text" name="nickname" value="" class="ipt nickname" /></div>
+                    </li>
+                    <li>
+                        <strong>密 码 <font color="#ff0000">*</font></strong>
+                        <div class="fl"><input type="password" name="psw" value="" class="ipt psw" /></div>
+                    </li>
+                    <li>
+                        <strong>姓 名 <font color="#ff0000">*</font></strong>
+                        <div class="fl"><input type="text" name="name" value="" class="ipt name" /></div>
+                    </li>
+                    <li>
+                        <strong>电 话 <font color="#ff0000">*</font></strong>
+                        <div class="fl"><input type="text" name="phone" value="" class="ipt phone" /></div>
+                    </li>
+                    <li>
+                        <strong>角 色 <font color="#ff0000">&nbsp;</font></strong>
+                        <div class="fl">
+                            <span class="inputBox">
+                                <select class="form-control"  style="width: 100px;height: 30px;">
+                                <option>总负责人</option>
+                                <option>楼管理员</option>
+                                <option>院管理员</option>
+                                <option>普通用户</option>
+                                </select>
+                            </span>
+                        </div>
+                    </li>
+                    <li><input type="submit" value="确认提交" class="submitBtn" /></li>
+                </ul>
+            </form>
+        </div><!-- HBox end -->
+    </div><!-- box end -->
+</div><!-- wrapper end -->
+<script src="popform/js/jquery.min.js"></script>
+<script src="popform/js/jquery.hDialog.min.js"></script>
+<script>
+    $(function(){
+        var $el = $('.dialog');
+        $el.hDialog();
+
+        $('.demo6').hDialog({
+                         modalHide: false,
+                         title: '添加用户信息',
+                         width:300,
+                         height:330,
+
+    });
+        //提交并验证表单
+        $('.submitBtn').click(function() {
+            var $nickname = $('.nickname');
+            var $phone = $('.phone');
+            if($nickname.val() == ''){
+                $.tooltip('登录名还没填呢...'); $nickname.focus();
+            }else if($phone.val() == ''){
+                $.tooltip('手机还没填呢...'); $phone.focus();
+            }else{
+                $.tooltip('提交成功!',1000,true);
+                setTimeout(function(){
+                    //$el.hDialog('close',{box:'#HBox'},'http://smwell.sinaapp.com/');  //也可以加跳转链接哦~
+                    $el.hDialog('close',{box:'#HBox'});
+                },1000);
+            }
+        });
+
+    });
+</script>
+
+</body>
+</html> 

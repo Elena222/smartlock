@@ -1,0 +1,70 @@
+@charset "UTF-8";
+#m-table table {
+  table-layout: fixed;
+  margin: 20px auto;
+  width: 97%;
+  border-collapse: collapse; }
+  #m-table table tbody, #m-table table thead {
+    background-color: rgba(242, 242, 242, 0.38); }
+    #m-table table tbody .first, #m-table table thead .first {
+      width: 5%;
+      text-align: center; }
+  #m-table table th, #m-table table td {
+    border-bottom: 1px solid #878787;
+    height: 35px;
+    text-align: left; }
+    #m-table table th .btn, #m-table table td .btn {
+      width: 24%;
+      height: 26px;
+      font-size: 12px; }
+  #m-table table tbody tr:hover {
+    cursor: pointer;
+    background-color: rgba(220, 220, 220, 0.52);
+    transition: 0.3s; }
+
+#m-popPanel, .popPanel {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 40%;
+  width: 270px;
+  padding-bottom: 10px;
+  font-family: "微软雅黑"; }
+  #m-popPanel form, .popPanel form {
+    background-color: whitesmoke;
+    border: 1px solid #f37b1d;
+    width: 100%; }
+    #m-popPanel form .pop-title, .popPanel form .pop-title {
+      position: relative;
+      background-color: rgba(4, 4, 11, 0.28);
+      height: 40px;
+      width: 100%; }
+      #m-popPanel form .pop-title p, .popPanel form .pop-title p {
+        font-weight: 500;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px; }
+      #m-popPanel form .pop-title span img, .popPanel form .pop-title span img {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        height: 30px;
+        width: 30px; }
+        #m-popPanel form .pop-title span img:hover, .popPanel form .pop-title span img:hover {
+          cursor: pointer; }
+    #m-popPanel form .pop-body, .popPanel form .pop-body {
+      width: 97%;
+      margin: 0 auto;
+      padding: 15px 24px 20px 0; }
+      #m-popPanel form .pop-body .input, .popPanel form .pop-body .input {
+        float: right;
+        margin-top: 10px; }
+      #m-popPanel form .pop-body:after, .popPanel form .pop-body:after {
+        display: block;
+        clear: both;
+        content: ""; }
+      #m-popPanel form .pop-body button, .popPanel form .pop-body button {
+        float: right;
+        width: 90%;
+        margin: 18px auto 0; }

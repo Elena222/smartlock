@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.snnu.css.dao.LogDao">
+    <!--根据用户的id来查询日志记录-->
+    <select id="logQueryAllByUserId" resultType="org.snnu.css.entity.Log">
+        select e2.log_id,e2.log_time,e1.user_id,e1.username,e1.account,e4.building_name,e3.room_part,e3.room_index,e2.behavior
+        from tb_user e1
+        join tb_log e2 on e1.user_id=e2.user_id
+        join tb_room e3 on e3.room_id=e2.room_id
+        join tb_building e4 on e4.building_id=e3.building_id
+        where higher_id=#{userId}
+    </select>
+    <!--生成一条日志记录-->
+    <insert id="logInsert">
+        insert into tb_log(log_time,user_id,room_id,behavior)
+        values(#{logTime},#{userId},#{roomId},#{behavior})
+    </insert>
+    <!--查看某一段时间内管理范围内的所有下级用户的日志记录-->
+    <select id="logQueryByHigherId" resultType="org.snnu.css.entity.Log">
+        select e2.log_id,e2.log_time,e1.user_id,e1.username,e1.account,e4.building_name,e3.room_part,e3.room_index,e2.behavior
+        from tb_user e1
+        join tb_log e2 on e1.user_id=e2.user_id
+        join tb_room e3 on e3.room_id=e2.room_id
+        join tb_building e4 on e4.building_id=e3.building_id
+        where e1.higher_id=#{userId}
+        <if test="startTime!=null and endTime!=null">
+            and e2.log_time between #{startTime} and #{endTime}
+        </if>
+
+    </select>
+    <!--查看某一段时间内某个用户的日志记录-->
+    <select id="logQueryByUserId" resultType="org.snnu.css.entity.Log">
+        select e1.log_id,e1.log_time,e1.user_id,e4.username,e4.account,e3.building_name,e2.room_part,e2.room_index,e1.behavior
+        from tb_log e1
+        join tb_room e2 on e2.room_id=e1.room_id
+        join tb_building e3 on e3.building_id=e2.building_id
+        join tb_user e4 on e1.user_id=e4.user_id
+        where e1.user_id=#{userId}
+        <if test="startTime!=null and endTime!=null">
+        and e1.log_time between #{startTime} and #{endTime}
+        </if>
+    </select>
+</mapper>

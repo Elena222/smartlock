@@ -1,0 +1,89 @@
+@charset "UTF-8";
+#m-nav {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "微软雅黑"; }
+  #m-nav body {
+    margin: 0;
+    padding: 0;
+    height: 100%; }
+  #m-nav .topNav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    font-family: "微软雅黑"; }
+    #m-nav .topNav ul {
+      padding: 0 30px 13.33333px 0;
+      margin: 0;
+      height: 40px;
+      background-color: rgba(23, 23, 23, 0.96); }
+      #m-nav .topNav ul li {
+        list-style: none; }
+      #m-nav .topNav ul .logo {
+        color: white;
+        font-size: 34px;
+        width: 250px;
+        float: left; }
+        #m-nav .topNav ul .logo p {
+          margin: 0;
+          text-align: center;
+          line-height: 40px; }
+        #m-nav .topNav ul .logo:hover {
+          cursor: pointer; }
+      #m-nav .topNav ul .login {
+        float: right;
+        margin-left: 20px; }
+        #m-nav .topNav ul .login a {
+          text-decoration: none; }
+          #m-nav .topNav ul .login a p {
+            color: white;
+            margin: 0;
+            text-align: center;
+            line-height: 40px; }
+            #m-nav .topNav ul .login a p:hover {
+              color: red; }
+  #m-nav .content {
+    padding-top: 40px;
+    height: 100%; }
+    #m-nav .content .leftNav {
+      margin-top: 0;
+      margin-left: 0;
+      height: 100%;
+      width: 250px;
+      background-color: rgba(0, 0, 0, 0.73);
+      float: left;
+      font-size: 15px;
+      font-family: "微软雅黑";
+      letter-spacing: 1px; }
+      #m-nav .content .leftNav ul {
+        padding: 0 0 0 0; }
+        #m-nav .content .leftNav ul li {
+          list-style: none; }
+          #m-nav .content .leftNav ul li a {
+            text-decoration: none; }
+            #m-nav .content .leftNav ul li a img {
+              padding-top: 9.5px;
+              width: 21px;
+              margin-left: 50px; }
+            #m-nav .content .leftNav ul li a p {
+              width: 159px;
+              float: right;
+              color: white;
+              margin: 0 0 0 20px;
+              line-height: 21px;
+              padding-top: 9.5px;
+              text-align: left; }
+        #m-nav .content .leftNav ul .leval {
+          height: 40px;
+          border-bottom: 0.2px solid rgba(190, 190, 190, 0.64);
+          transition: 0.4s; }
+          #m-nav .content .leftNav ul .leval:hover {
+            background-color: rgba(255, 0, 0, 0.65); }
+        #m-nav .content .leftNav ul .current {
+          background-color: red;
+          transition: 0.2s; }
+    #m-nav .content .main-content {
+      margin-left: 250px;
+      overflow-y: scroll;
+      height: 100%; }
